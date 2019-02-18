@@ -21,98 +21,46 @@ body {
     font-family: 'Coda', cursive;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
+div#memory_board{
+background: rgba(0, 255, 100, Math.random());
+border: #999 1px solid;
+width: 800px;
+height: 250px;
+padding: 24px;
+margin: 0px auto;
 
-/*
- * Styles for the deck of cards
- */
-
-.deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(90deg, blue 0%, red 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+}
+div#memory_board > div{
+  background-color: black;
+  border: #000 1px solid;
+  width: 71px;
+  height: 71px;
+  float: left;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  animation: shake 2s infinite;
 }
 
-.deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 10;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  h1#timer{
+    text-align: center;
+  }
+@keyframes shake{
+  0% {}
+  100% {
+    transform: translateX(0%);
+    transform-origin: top left;
+  }
+  15% {transform: translateX(-6px) rotate(-6deg);}
+  30% {transform: translateX(3px) rotate(6deg);}
+  45% {transform: translateX(-3px) rotate(-3.6deg);}
+  60% {transform: translateX(2px) rotate(2.4deg);}
+  75% {transform: translateX(-1px) rotate(-1.2deg);}
 }
-
-.deck .card.open {
-    transform: rotateY(40deg);
-    background: #02b3e4;
-    cursor: default;
-}
-
-.deck .card.show {
-    font-size: 33px;
-}
-
-.deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 33px;
-}
-
-/*
- * Styles for the Score Panel
- */
-
-.score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
-}
-
-.score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-}
-
-.score-panel .restart {
-    float: right;
-    cursor: pointer;
-}
-
-.card:hover {
-  background-color: silver;
-  transform: rotate(0.625turn);
-  content: "email address: ";
-}
-
-
-/* try youtube child div application rule on youtube */

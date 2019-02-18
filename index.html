@@ -1,129 +1,14 @@
 <!doctype HTML>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Matching Game</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="css/app.css">
-  <style type="text/css">
-  div#memory_board{
-  background: rgba(0, 255, 100, Math.random());
-  border: #999 1px solid;
-  width: 800px;
-  height: 250px;
-  padding: 24px;
-  margin: 0px auto;
-
-}
-  div#memory_board > div{
-    background-color: black;
-    border: #000 1px solid;
-    width: 71px;
-    height: 71px;
-    float: left;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-    animation: bounce 10s infinite;
-  }
-
-    h1#timer{
-      text-align: center;
-    }
-  /* @keyframes bounce{
-    0%{top: -25px; left: -20px;}
-      50%{top: 300px; left: 50px;}
-        100%{top: -25px; left: -20px;}
-  } */
-
-  </style>
-  <script>
-  let memory_array = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H',];
-  let memory_values = [];
-  let memory_tile_ids = [];
-  let tiles_flipped = 0;
-
-  Array.prototype.memory_tile_shuffle = function() {
-    var i = this.length, j, temp;
-    while (--i > 0) {
-      j = Math.floor(Math.random() * (i + 1));
-      temp = this[j];
-      this[j] = this[i];
-      this[i] = temp;
-    }
-  }
-  function randomColor() {
-    var color = '#'; // hexadecimal starting symbol
-    var letters = ['FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF']; //Set your colors here
-    color += letters[Math.floor(Math.random() * letters.length)];
-    document.getElementById('memory_board').style.background = color; // Setting the random color on your div element.
-  }
-  function newBoard() {
-    randomColor();
-    tiles_flipped = 0;
-    var output = '';
-    memory_array.memory_tile_shuffle();
-    for(var i = 0; i < memory_array.length; i++) {
-      output += '<div id="tile_'+i+'"onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
-  }
-    var timeleft = 50;
-    var downloadTimer = setInterval(function(){
-      document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
-      timeleft -= 1;
-      if(timeleft <= -1){
-        clearInterval(downloadTimer);
-        document.getElementById("timer").innerHTML = "time is up";
-      }
-    }, 1000);
-    document.getElementById('memory_board').innerHTML = output;
-  }
-
-  function memoryFlipTile(tile, value) {
-      if (memory_values.length < 2) {
-        tile.style.background = '#FFF';
-        tile.innerHTML = value;
-        if (memory_values.length === 0) {
-          memory_values.push(value);
-          memory_tile_ids.push(tile.id);
-          // console.log(memory_values); console.log(memory_tile_ids);
-        } else if (memory_values.length === 1) {
-            memory_values.push(value);
-            memory_tile_ids.push(tile.id);
-            // console.log(memory_values); console.log(memory_tile_ids);
-            if (memory_values[0] === memory_values[1]) {
-              // alert(`you have gotten ${memory_values[0]}!`);
-              memory_values = []; memory_tile_ids = [];
-              tiles_flipped += 2;
-            } else {
-              // console.log('does not match');
-              function flip2Back() {
-                  var tile0 = document.getElementById(memory_tile_ids[0]);
-                  var tile1 = document.getElementById(memory_tile_ids[1]);
-                  // console.log('does not match2'); console.log(tile0); console.log(tile1);
-                  tile0.style.background = 'black'; tile1.style.background = 'black';
-                  tile0.innerHTML = ''; tile1.innerHTML = '';
-                  // clear both arrays
-                  memory_values = []; memory_tile_ids = [];
-                  }
-                setTimeout(flip2Back, 700);
-              }
-          }
-      }
-      if (tiles_flipped === memory_array.length) { //LOOK INTO THIS:  something about get/set and queues javascript vs html......
-        document.getElementById('memory_board').innerHTML = "";
-        setTimeout(alert('you win!'), 1400)
-        newBoard();
-      }
-  }
-  </script>
+<meta charset="utf-8">
+<title>Matching Game</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 <div id="memory_board"></div>
 <h1 id="timer"></h1>
-<script>newBoard();
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
