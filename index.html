@@ -5,10 +5,33 @@
 <title>Matching Game</title>
 <meta name="description" content="">
 <link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div id="memory_board"></div>
+<p></p>
+<div class="star">
+  <span id="star1" class="fa fa-star checked"></span>
+  <span id="star2" class="fa fa-star checked"></span>
+  <span id="star3" class="fa fa-star checked"></span>
+  <span id="star4" class="fa fa-star checked"></span>
+  <span id="star5" class="fa fa-star checked"></span>
+  <span id="star6" class="fa fa-star checked"></span>
+  <span id="star7" class="fa fa-star checked"></span>
+  <span id="star8" class="fa fa-star checked"></span>
+  <span id="star9" class="fa fa-star checked"></span>
+  <span id="star10" class="fa fa-star checked"></span>
+</div>
+<div id="move-counter">Move Counter: 0</div>
+<button id="restart">Restart</button>
 <h1 id="timer"></h1>
+<div id="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-statement"></div>
+  </div>
+</div>
+
 <script src="js/app.js"></script>
 </body>
 </html>
