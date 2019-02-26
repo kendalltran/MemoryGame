@@ -6,4 +6,4 @@ Memory Game
   app.css
   app.js
 
----This code version is master3 and is available publicly on GitHub.
+---This code version is master4 and is available publicly on GitHub.
